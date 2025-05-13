@@ -36,6 +36,9 @@ sources:
   "1.8.21":
     url: "https://github.com/HDFGroup/hdf5/archive/hdf5-1_8_21.tar.gz"
     sha256: "753520e34a576a64809b8e02d9c015d6126f7974f678c7417a60492d835a88f4"
+  "1.8.23":
+    url: "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/hdf5-1.8.23/src/hdf5-1.8.23.tar.gz"
+    sha256: "37fa4eb6cd0e181eb49a10d54611cb00700e9537f805d03e6853503afe5abc27"
 patches:
   "1.14.0":
     - patch_file: "patches/conanize-link-szip-1.14.0+.patch"
@@ -79,6 +82,10 @@ patches:
     - patch_file: "patches/mingw-unused-ellipses.patch"
       patch_type: "conan"
       patch_description: "mingw unused ellipses"
+  "1.8.23":
+    - patch_file: "patches/conanize-link-szip-1.8.23.patch"
+      patch_type: "conan"
+      patch_description: "Fixup target_link_libraries() targets for szip and zlib"
   "1.8.21":
     - patch_file: "patches/conanize-link-szip-1.8.21.patch"
       patch_type: "conan"
