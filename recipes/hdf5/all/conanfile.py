@@ -32,6 +32,7 @@ class Hdf5Conan(ConanFile):
         "szip_support": [None, "with_libaec", "with_szip"],
         "szip_encoding": [True, False],
         "parallel": [True, False],
+        "build_tools": [True, False],
         "enable_unsupported": [True, False],
     }
     default_options = {
@@ -45,7 +46,8 @@ class Hdf5Conan(ConanFile):
         "szip_support": None,
         "szip_encoding": False,
         "parallel": False,
-        "enable_unsupported": False
+        "enable_unsupported": False,
+        "build_tools": False,
     }
 
     @property
@@ -166,7 +168,7 @@ class Hdf5Conan(ConanFile):
 
         tc.variables["HDF5_INSTALL_INCLUDE_DIR"] = "include/hdf5"
 
-        tc.variables["HDF5_BUILD_TOOLS"] = False
+        tc.variables["HDF5_BUILD_TOOLS"] = self.options.build_tools
         tc.variables["HDF5_BUILD_EXAMPLES"] = False
         tc.variables["HDF5_BUILD_HL_LIB"] = self.options.hl
         tc.variables["HDF5_BUILD_FORTRAN"] = False
